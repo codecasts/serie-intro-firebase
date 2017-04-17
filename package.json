@@ -12,7 +12,9 @@
   "dependencies": {
     "babel-runtime": "^6.0.0",
     "fastclick": "^1.0.6",
+    "firebase": "^3.7.8",
     "localforage": "^1.5.0",
+    "lodash": "^4.17.4",
     "material-design-icons": "^3.0.1",
     "moment": "^2.15.0",
     "quasar-framework": "^0.13.4",

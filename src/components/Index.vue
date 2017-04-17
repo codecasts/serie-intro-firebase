@@ -2,15 +2,21 @@
 <script>
   import CcForm from './expenses/form.vue'
   import CcList from './expenses/list.vue'
-  import { getExpenses } from '../persistence'
+  import { map } from 'lodash'
   export default {
     components: { CcForm, CcList },
     mounted () {
-      this.$store.commit('SET_EXPENSES', getExpenses())
+      this.$db.ref('expenses').on('value', data => {
+        const obj = data.val()
+        this.list = map(obj, (expense, index) => {
+          expense.id = index
+          return expense
+        })
+      })
     },
-    computed: {
-      list () {
-        return this.$store.state.Expenses.list
+    data () {
+      return {
+        list: []
       }
     }
   }
@@ -26,7 +32,7 @@
     <div class="container">
       <cc-form></cc-form>
       <hr v-show="list.length > 0">
-      <cc-list></cc-list>
+      <cc-list :list="list"></cc-list>
     </div>
   </q-layout>
 </template>
