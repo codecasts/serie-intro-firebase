@@ -1,6 +1,5 @@
 
 <script>
-  import Firebase from 'firebase'
   import CcForm from './expenses/form.vue'
   import CcList from './expenses/list.vue'
   import { map } from 'lodash'
@@ -22,7 +21,7 @@
     },
     methods: {
       logout () {
-        Firebase.auth().signOut()
+        this.$auth.signOut()
       }
     }
   }

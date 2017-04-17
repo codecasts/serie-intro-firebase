@@ -11,9 +11,10 @@ var config = {
 
 const connection = Firebase.initializeApp(config)
 const DB = connection.database()
+const AUTH = connection.auth()
 
 export default function install (Vue, { router }) {
-  Firebase.auth().onAuthStateChanged(user => {
+  AUTH.onAuthStateChanged(user => {
     if (!user) {
       router.push({ path: 'auth' })
     }
@@ -23,6 +24,11 @@ export default function install (Vue, { router }) {
     $db: {
       get () {
         return DB
+      }
+    },
+    $auth: {
+      get () {
+        return AUTH
       }
     }
   })
