@@ -2,6 +2,12 @@
 
 > A Quasar project
 
+## Importante
+
+Crie o seu projeto Firebase em https://console.firebase.google.com.
+
+**As credenciais deste projeto nao funcionarao**
+
 ## Build Setup
 
 ``` bash
